@@ -26,5 +26,23 @@ namespace Amoba
         {
             tbKorokSzama.Enabled = cbKorokSzama.Checked;
         }
+
+        private void btnKezdes_Click(object sender, EventArgs e)
+        {
+            if (tbJatekos1.Text.Length == 0 || tbJatekos2.Text.Length == 0)
+            {
+                MessageBox.Show("Nem adtál meg játékosnevet!");
+            }
+            else if (tbJatekos1.Text == tbJatekos2.Text)
+            {
+                MessageBox.Show("A két játékosnév egyezik!");
+            } 
+            else
+            {
+                this.Hide();
+                frmJatek frmJatek = new frmJatek(tbJatekos1.Text, tbJatekos2.Text, cbKorokSzama.Checked ? Convert.ToInt32(tbKorokSzama.Text) : 0);
+                frmJatek.Show();
+            }
+        }
     }
 }
